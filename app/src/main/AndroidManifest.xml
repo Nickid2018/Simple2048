@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.github.nickid2018.simple2048">
+
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission
+			android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+			tools:ignore="ManifestOrder,ScopedStorage"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+	<application
+			android:allowBackup="true"
+			android:icon="@mipmap/launch_icon"
+			android:label="@string/app_name"
+			android:roundIcon="@mipmap/launch_round_icon"
+			android:supportsRtl="true"
+			android:theme="@style/Theme.Simple2048"
+			tools:ignore="AllowBackup">
+		<activity android:name=".CustomizeTableActivity">
+		</activity>
+		<activity android:name=".ChooseModeActivity">
+		</activity>
+		<activity android:name=".ChunkColorActivity">
+		</activity>
+		<activity
+				android:name=".SplashActivity"
+				android:configChanges="orientation|keyboardHidden|screenSize"
+				android:label="@string/app_name"
+				android:theme="@style/Theme.Simple2048.Fullscreen">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".MultiplayerPrepareActivity">
+		</activity>
+		<activity android:name=".ReplayActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data
+						android:host="*"
+						android:mimeType="*/*"
+						android:pathPattern=".*\\.replay"
+						android:scheme="file"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\.replay"
+						android:scheme="file"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\.replay"
+						android:scheme="file"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\..*\\.replay"
+						android:scheme="file"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\..*\\..*\\.replay"
+						android:scheme="file"/>
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW"/>
+
+				<category android:name="android.intent.category.DEFAULT"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+
+				<data
+						android:host="*"
+						android:mimeType="*/*"
+						android:pathPattern=".*\\.replay"
+						android:scheme="content"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\.replay"
+						android:scheme="content"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\.replay"
+						android:scheme="content"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\..*\\.replay"
+						android:scheme="content"/>
+				<data
+						android:host="*"
+						android:pathPattern=".*\\..*\\..*\\..*\\..*\\.replay"
+						android:scheme="content"/>
+			</intent-filter>
+		</activity>
+		<activity android:name=".EntranceActivity">
+		</activity>
+		<activity android:name=".ReplaySelectActivity">
+		</activity>
+		<activity android:name=".SettingsActivity">
+		</activity>
+		<activity android:name=".ScoreActivity">
+		</activity>
+		<activity android:name=".SimpleGameActivity">
+		</activity>
+	</application>
+
+</manifest>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="vertical" android:id="@+id/base">
+
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp" android:layout_weight="1" android:baselineAligned="false">
+		<LinearLayout
+				android:layout_width="0dp"
+				android:layout_height="match_parent" android:id="@+id/relative"
+				android:orientation="vertical" android:layout_weight="1" tools:ignore="NestedWeights">
+			<LinearLayout
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="0dp" android:id="@+id/nowPane"
+					android:layout_weight="1">
+				<TextView
+						android:text="0"
+						android:layout_width="match_parent"
+						android:layout_height="0dp" android:id="@+id/nowValueText"
+						android:textSize="42sp"
+						android:layout_weight="2.5" android:textAlignment="center" android:textAllCaps="false"
+						android:textColor="@color/scoreColor" android:translationY="5dp" tools:ignore="HardcodedText"
+						android:autoSizeTextType="uniform"
+						android:autoSizeMaxTextSize="42sp" android:maxLines="1"/>
+				<TextView
+						android:text="@string/currentValue"
+						android:layout_width="match_parent"
+						android:layout_height="0dp" android:id="@+id/nowValueLabel"
+						android:textSize="20sp"
+						android:layout_weight="1.5" android:textAlignment="center"/>
+			</LinearLayout>
+			<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="0dp" android:layout_weight="1" tools:ignore="DisableBaselineAlignment">
+				<LinearLayout
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent" android:id="@+id/maxValuePane"
+						android:layout_weight="1">
+					<TextView
+							android:text="0"
+							android:layout_width="match_parent"
+							android:layout_height="0dp" android:id="@+id/maxValueText"
+							android:textSize="28sp"
+							android:layout_weight="1.5" android:textColor="@color/teal_700"
+							android:textAlignment="center" android:translationY="10dp" tools:ignore="HardcodedText"
+							android:singleLine="false" android:autoSizeTextType="uniform"
+							android:autoSizeMaxTextSize="28sp" android:maxLines="1"/>
+					<TextView
+							android:text="@string/nowMaxValue"
+							android:layout_width="match_parent"
+							android:layout_height="0dp" android:id="@+id/maxValueLabel"
+							android:textSize="20sp"
+							android:layout_weight="1" android:textAlignment="center" android:translationY="-5dp"/>
+				</LinearLayout>
+				<LinearLayout
+						android:orientation="vertical"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent" android:id="@+id/hisMaxPane"
+						android:layout_weight="1">
+					<TextView
+							android:text="Undef"
+							android:layout_width="match_parent"
+							android:layout_height="0dp" android:id="@+id/maxResultText"
+							android:textSize="28sp"
+							android:layout_weight="1.5" android:textAlignment="center"
+							android:textColor="@color/teal_700" android:translationY="10dp"
+							tools:ignore="HardcodedText" android:singleLine="false"
+							android:autoSizeTextType="uniform"
+							android:autoSizeMaxTextSize="28sp" android:maxLines="1"/>
+					<TextView
+							android:text="@string/maxHistoryResult"
+							android:layout_width="match_parent"
+							android:layout_height="0dp" android:id="@+id/maxResultLabel"
+							android:textSize="20sp"
+							android:layout_weight="1" android:translationY="-5dp" android:textAlignment="center"/>
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout
+				android:orientation="vertical"
+				android:layout_width="0dp"
+				android:layout_height="match_parent" android:id="@+id/buttonPane"
+				android:layout_weight="1">
+			<Button
+					android:text="@string/restart"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:id="@+id/restart"
+					android:background="@drawable/button_background" android:scaleY="0.8" android:scaleX="0.8"
+					android:layout_weight="1"/>
+			<Button
+					android:text="@string/rollback"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:id="@+id/rollback"
+					android:background="@drawable/button_background" android:scaleY="0.8" android:scaleX="0.8"
+					android:layout_weight="1" android:onClick="rollback"/>
+			<Button
+					android:text="@string/settings"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:id="@+id/setting"
+					android:background="@drawable/button_background" android:scaleY="0.8" android:scaleX="0.8"
+					android:layout_weight="1"/>
+			<Button
+					android:text="@string/scores"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:id="@+id/scores"
+					android:background="@drawable/button_background" android:scaleY="0.8" android:scaleX="0.8"
+					android:layout_weight="1"/>
+		</LinearLayout>
+	</LinearLayout>
+	<View
+			android:layout_width="match_parent"
+			android:layout_height="2dp"
+			android:background="?android:attr/listDivider"
+	/>
+	<com.github.nickid2018.simple2048.display.TableView
+			android:layout_width="match_parent"
+			android:layout_height="0dp" android:id="@+id/tableView" android:layout_weight="2.5"/>
+</LinearLayout>

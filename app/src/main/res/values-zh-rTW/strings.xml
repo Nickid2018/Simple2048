@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">精簡版2048</string>
+	<string name="maxHistoryResult">最高紀錄</string>
+	<string name="currentValue">現在得分</string>
+	<string name="nowMaxValue">最大值</string>
+	<string name="restart">重新開始</string>
+	<string name="settings">設置</string>
+	<string name="scores">記錄</string>
+	<string name="gameOver">游戲結束</string>
+	<string name="easterEgg_gameOver">終</string>
+	<string name="startNext">開始下一局</string>
+	<string name="saveReplay">保存錄像</string>
+	<string name="invalidMove">無效的移動！</string>
+	<string name="ok">確定</string>
+	<string name="replayOwner">輸入錄像者</string>
+	<string name="replayName">輸入錄像文件名稱</string>
+	<string name="replaySaved">錄像成功保存</string>
+	<string name="replaySaveFail">錄像保存進程中發生了錯誤</string>
+	<string name="yes">是</string>
+	<string name="no">否</string>
+	<string name="restartWarning">重新開始會丟失現在的游戲數據，繼續？</string>
+	<string name="confirmExit">確認退出？</string>
+	<string name="score">分數榜</string>
+	<string name="scoreTime">時間</string>
+	<string name="scoreData">分數</string>
+	<string name="replay">錄像</string>
+	<string-array name="settings">
+		<item>動畫持續時間</item>
+		<item>背景圖片</item>
+		<item>前景透明度</item>
+		<item>回放錄像時間間隔</item>
+		<item>防誤觸摸式</item>
+		<item>數字顔色設置</item>
+	</string-array>
+	<string name="noSet">未設定</string>
+	<string name="setAnimationDuration">設置動畫持續時間（以毫秒爲單位）</string>
+	<string name="cancel">取消</string>
+	<string name="setBackground">設置背景圖片</string>
+	<string name="replayFiles">錄像文件</string>
+	<string name="operationCount">操作次數</string>
+	<string name="unknownReplay">錄像文件内容無法得知（可能文件已經損毀）</string>
+	<string name="setReplayDuration">設置回放錄像間隔時間（以毫秒爲單位）</string>
+	<string name="errorWhenSet">在設置過程中發生了錯誤</string>
+	<string name="outsideReplay">添加外部錄像文件</string>
+	<string name="forceStopReplay">確認强制停止回放？</string>
+	<string name="forceStop">停止</string>
+	<string name="replayEndAndLoop">回放結束，是否重放？</string>
+	<string name="progress">進度</string>
+	<string name="replaying">正在回放：</string>
+	<string name="back">返回</string>
+	<string name="send">發送</string>
+	<string name="startGame">開始游戲</string>
+	<string name="roomOwner">房主</string>
+	<string name="serverStop">服務器已停止</string>
+	<string name="serverBind">服務器在%s上開啓</string>
+	<string name="serverError">服務器遇到了異常：%s</string>
+	<string name="clientError">客戶機遇到了異常：%s</string>
+	<string name="clientAdd">%s加入了房間</string>
+	<string name="clientLeave">%s離開了房間</string>
+	<string name="backgroundSet">背景已設置（清除請重新點入並退出）</string>
+	<string name="useChop">進行裁剪</string>
+	<string name="useSource">使用原圖</string>
+	<string name="setBackgroundFunction">將圖片應用於背景</string>
+	<string name="noPermission">無法獲取權限</string>
+	<string name="on">開啓</string>
+	<string name="off">關閉</string>
+	<string name="haveLastData">檢測到上次的游戲數據，是否從上次數據繼續？</string>
+	<string name="gameDataLoadFailed">無法加載上次的數據</string>
+	<string name="replayScore">得分</string>
+	<string name="locale">zh_tw</string>
+	<string name="setForegroundAlpha">設置前景透明度（從0到1）</string>
+	<string name="illegalNumber">無效的數字：%s</string>
+	<string name="number1">生成數字1</string>
+	<string name="number2">生成數字2</string>
+	<string name="spawnRatio">生成比例</string>
+	<string name="replayJump">跳轉到...</string>
+	<string name="replayJumping">跳轉中...</string>
+	<string name="noRollback">沒有可用的撤回數據</string>
+	<string name="rollback">撤回</string>
+</resources>

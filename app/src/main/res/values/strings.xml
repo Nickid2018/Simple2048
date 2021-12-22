@@ -1,0 +1,81 @@
+<resources>
+	<string name="app_name">Simple 2048</string>
+	<string name="maxHistoryResult">Record</string>
+	<string name="currentValue">Current Score</string>
+	<string name="nowMaxValue">Max</string>
+	<string name="restart">Restart</string>
+	<string name="settings">Settings</string>
+	<string name="scores">Scores</string>
+	<string name="gameOver">Game Over!</string>
+	<string name="easterEgg_gameOver">Gome Aver!</string>
+	<string name="startNext">Start next</string>
+	<string name="saveReplay">Save Replay</string>
+	<string name="invalidMove">Invalid Move!</string>
+	<string name="ok">OK</string>
+	<string name="replayOwner">Input the owner of the replay</string>
+	<string name="replayName">Input the name of the replay</string>
+	<string name="replaySaved">Replay Saved</string>
+	<string name="replaySaveFail">Replay saving failed</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+	<string name="restartWarning">You will lose game data if you restart it, continue?</string>
+	<string name="confirmExit">Confirm Exit</string>
+	<string name="score">Scores</string>
+	<string name="scoreTime">Time</string>
+	<string name="scoreData">Score</string>
+	<string name="copyright" translatable="false">Copyright 2021 Nickid2018 \"Simple2048\" ver 1.0 - Snapshot</string>
+	<string name="replay">Replays</string>
+	<string-array name="settings">
+		<item>Animation Duration</item>
+		<item>Background Image</item>
+		<item>Foreground Alpha</item>
+		<item>Replay Duration</item>
+		<item>Anti-mis-touch Mode</item>
+		<item>Colors for Numbers</item>
+	</string-array>
+	<string name="noSet">Not set</string>
+	<string name="setAnimationDuration">Set animation duration (ms)</string>
+	<string name="cancel">Cancel</string>
+	<string name="setBackground">Set background picture</string>
+	<string name="replayFiles">Replay Files</string>
+	<string name="operationCount">Operations</string>
+	<string name="unknownReplay">Replay data can\'t be read (Maybe the file is corrupted)</string>
+	<string name="setReplayDuration">Set replay duration (ms)</string>
+	<string name="errorWhenSet">An error occurred when setting</string>
+	<string name="outsideReplay">Add outside replay files</string>
+	<string name="forceStopReplay">Confirm forced stop replay?</string>
+	<string name="forceStop">Force Stop</string>
+	<string name="replayEndAndLoop">The replay is over, whether to replay it?</string>
+	<string name="progress">Progress</string>
+	<string name="replaying">"Replaying: "</string>
+	<string name="back">Back</string>
+	<string name="send">Send</string>
+	<string name="startGame">Start Game</string>
+	<string name="roomOwner">Room Owner</string>
+	<string name="serverStop">Server has been stopped</string>
+	<string name="serverBind">Server binded to %s</string>
+	<string name="serverError">Server met an error: %s</string>
+	<string name="clientError">Client met an error: %s</string>
+	<string name="clientAdd">%s into the room</string>
+	<string name="clientLeave">%s left the room</string>
+	<string name="backgroundSet">Background set (To remove please press again)</string>
+	<string name="useChop">Chop</string>
+	<string name="useSource">Use picture</string>
+	<string name="setBackgroundFunction">Set background</string>
+	<string name="noPermission">Cannot get permissions</string>
+	<string name="on">On</string>
+	<string name="off">Off</string>
+	<string name="haveLastData">The last game data is detected. Continue from the last data?</string>
+	<string name="gameDataLoadFailed">Cannot load the last data</string>
+	<string name="replayScore">Score</string>
+	<string name="locale">en_us</string>
+	<string name="setForegroundAlpha">Set foreground alpha (From 0 to 1)</string>
+	<string name="illegalNumber">Illegal number: %s</string>
+	<string name="number1">Number 1 to spawn</string>
+	<string name="number2">Number 2 to spawn</string>
+	<string name="spawnRatio">Spawn Ratio</string>
+	<string name="replayJump">Jump to...</string>
+	<string name="replayJumping">Jumping...</string>
+	<string name="noRollback">No rollback record available</string>
+	<string name="rollback">Rollback</string>
+</resources>

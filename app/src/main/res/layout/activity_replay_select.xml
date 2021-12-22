@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".ReplaySelectActivity" android:orientation="vertical">
+
+	<TextView
+			android:text="@string/replayFiles"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:id="@+id/replayLabel" android:textAlignment="center"
+			android:textDirection="ltr" android:textSize="34sp"/>
+	<View
+			android:id="@+id/replayDev"
+			android:layout_width="match_parent"
+			android:layout_height="3dp"
+			android:background="?android:attr/listDivider"
+	/>
+	<ListView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" android:id="@+id/replayFileLists"
+			android:headerDividersEnabled="false" tools:ignore="AdapterViewChildren"
+			android:footerDividersEnabled="true"/>
+</LinearLayout>
