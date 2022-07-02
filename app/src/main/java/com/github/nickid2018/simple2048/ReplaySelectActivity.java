@@ -37,15 +37,12 @@ public class ReplaySelectActivity extends AppCompatActivity {
                 ReplayData replay = new ReplayData(ReplayData.STATUS_READING);
                 try {
                     replay.preLoad(now);
-                    nowMap.put("replayName", replay.isLegacy() ? fileName.substring(0, fileName.lastIndexOf('.')) : replay.getName());
+                    nowMap.put("replayName", replay.getName());
                     nowMap.put("replayAuthor", replay.getOwner());
                     nowMap.put("replayDate", String.format(Locale.getDefault(), "%tF %tT", replay.getDate(), replay.getDate()));
-                    if (replay.isLegacy())
-                        nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize());
-                    else
-                        nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize()
-                                + " " + getString(R.string.nowMaxValue) + " " + replay.getMaxValue()
-                                + " " + getString(R.string.replayScore) + " " + replay.getScore());
+                    nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize()
+                            + " " + getString(R.string.nowMaxValue) + " " + replay.getMaxValue()
+                            + " " + getString(R.string.replayScore) + " " + replay.getScore());
                 } catch (Exception e) {
                     Log.e("Replay System", "Reading replay", e);
                     nowMap.put("replayName", fileName.substring(0, fileName.lastIndexOf('.')));
@@ -104,24 +101,12 @@ public class ReplaySelectActivity extends AppCompatActivity {
             String path = now.getPath();
             try {
                 replay.preLoad(now, getContentResolver());
-                if (replay.isLegacy()) {
-                    if (path == null)
-                        nowMap.put("replayName", "Unknown Name");
-                    else {
-                        String[] split1 = path.split(":");
-                        String name = split1[split1.length - 1];
-                        nowMap.put("replayName", name.substring(0, name.lastIndexOf('.')));
-                    }
-                } else
-                    nowMap.put("replayName", replay.getName());
+                nowMap.put("replayName", replay.getName());
                 nowMap.put("replayDate", String.format(Locale.getDefault(), "%tF %tT", replay.getDate(), replay.getDate()));
                 nowMap.put("replayAuthor", replay.getOwner());
-                if (replay.isLegacy())
-                    nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize());
-                else
-                    nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize()
-                            + " " + getString(R.string.nowMaxValue) + " " + replay.getMaxValue()
-                            + " " + getString(R.string.replayScore) + " " + replay.getScore());
+                nowMap.put("replayOperations", getString(R.string.operationCount) + " " + replay.entrySize()
+                        + " " + getString(R.string.nowMaxValue) + " " + replay.getMaxValue()
+                        + " " + getString(R.string.replayScore) + " " + replay.getScore());
             } catch (Exception e) {
                 Log.e("Replay System", "Reading replay", e);
                 Toast.makeText(this, R.string.unknownReplay, Toast.LENGTH_SHORT).show();

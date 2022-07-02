@@ -2,7 +2,6 @@ package com.github.nickid2018.simple2048.replay;
 
 import android.content.ContentResolver;
 import android.net.Uri;
-import android.util.Log;
 import androidx.core.util.Pair;
 import com.github.nickid2018.simple2048.display.SpawnData;
 import com.github.nickid2018.simple2048.gamedata.GameTable;
@@ -25,11 +24,9 @@ public class ReplayData {
     public static final int STATUS_READING = 3;
     public static final int STATUS_USELESS = 4;
 
-    public static final byte[] LEGACY_HEAD = "REP2048".getBytes(StandardCharsets.UTF_8);
     public static final byte[] HEAD = "RPY2048".getBytes(StandardCharsets.UTF_8);
     public static final byte[] CUSTOM_HEAD = "CRY2048".getBytes(StandardCharsets.UTF_8);
 
-    private boolean isLegacy;
     private boolean isCustom;
 
     private Date date;
@@ -40,7 +37,7 @@ public class ReplayData {
     private InitialEntry initial;
     private int entrySize;
     private List<ReplayEntry> entries;
-    private List<Pair<Long, Long>> valuesTo = new ArrayList<>();
+    private final List<Pair<Long, Long>> valuesTo = new ArrayList<>();
 
     private int status;
 
@@ -106,10 +103,6 @@ public class ReplayData {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isLegacy() {
-        return isLegacy;
     }
 
     public long getMaxValue() {
@@ -247,7 +240,7 @@ public class ReplayData {
         GZIPInputStream stream = analyzeHead(is);
         entries = new ArrayList<>();
         for (int i = 0; i < entrySize; i++)
-            entries.add(isLegacy ? ReplayEntry.deserializeLegacy(stream) : ReplayEntry.deserialize(stream));
+            entries.add(ReplayEntry.deserialize(stream));
         if (stream.available() == 1) {
             byte[] dataT = new byte[8];
             stream.read(dataT);
@@ -267,17 +260,11 @@ public class ReplayData {
     private GZIPInputStream analyzeHead(InputStream is) throws IOException {
         if (status != STATUS_READING)
             throw new IllegalStateException();
-        byte[] head = new byte[LEGACY_HEAD.length];
+        byte[] head = new byte[HEAD.length];
         is.read(head);
-        if (Arrays.equals(LEGACY_HEAD, head)) {
-            isLegacy = true;
-            isCustom = false;
-            Log.i("Replay System", "Using legacy file struct");
-        } else if (Arrays.equals(HEAD, head)) {
-            isLegacy = false;
+        if (Arrays.equals(HEAD, head)) {
             isCustom = false;
         } else if (Arrays.equals(CUSTOM_HEAD, head)) {
-            isLegacy = false;
             isCustom = true;
         } else
             throw new IOException("Invalid replay file: head");
@@ -286,22 +273,18 @@ public class ReplayData {
         byte[] ownerTransfer = new byte[ownerLen];
         stream.read(ownerTransfer);
         owner = new String(ownerTransfer, StandardCharsets.UTF_8);
-        if (!isLegacy) {
-            int nameLen = stream.read();
-            byte[] nameTransfer = new byte[nameLen];
-            stream.read(nameTransfer);
-            name = new String(nameTransfer, StandardCharsets.UTF_8);
-        }
+        int nameLen = stream.read();
+        byte[] nameTransfer = new byte[nameLen];
+        stream.read(nameTransfer);
+        name = new String(nameTransfer, StandardCharsets.UTF_8);
         byte[] dataTransfer = new byte[8];
         stream.read(dataTransfer);
         date = new Date(bytesToLong(dataTransfer));
-        if (!isLegacy) {
-            stream.read(dataTransfer);
-            maxValue = bytesToLong(dataTransfer);
-            stream.read(dataTransfer);
-            score = bytesToLong(dataTransfer);
-        }
-        initial = isLegacy ? InitialEntry.deserializeLegacy(stream) : InitialEntry.deserialize(stream);
+        stream.read(dataTransfer);
+        maxValue = bytesToLong(dataTransfer);
+        stream.read(dataTransfer);
+        score = bytesToLong(dataTransfer);
+        initial = InitialEntry.deserialize(stream);
         stream.read(dataTransfer);
         entrySize = Math.toIntExact(bytesToLong(dataTransfer));
         return stream;

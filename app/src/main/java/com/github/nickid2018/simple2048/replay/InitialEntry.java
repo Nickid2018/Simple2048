@@ -18,10 +18,6 @@ public class InitialEntry {
         this.value2 = value2;
     }
 
-    public static InitialEntry deserializeLegacy(InputStream is) throws IOException {
-        return new InitialEntry(is.read(), is.read(), is.read(), is.read());
-    }
-
     public static InitialEntry deserialize(InputStream is) throws IOException {
         byte[] data = new byte[8];
         int slot1 = is.read();

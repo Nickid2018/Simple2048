@@ -100,8 +100,7 @@ public class ReplayActivity extends AppCompatActivity {
             dataNow.deserialize(intent.getData(), getContentResolver());
             ((TextView) findViewById(R.id.replayingInfoLabel))
                     .setText(getString(R.string.replaying)
-                            + (intent.getExtras() == null ?
-                            (dataNow.isLegacy() ? intent.getData().getPath() : dataNow.getName()) : intent.getStringExtra("name"))
+                            + (intent.getExtras() == null ? dataNow.getName() : intent.getStringExtra("name"))
                             + " - " + dataNow.getOwner());
             ProgressBar bar = findViewById(R.id.replayProgressBar);
             ImageView replayRun = findViewById(R.id.button_replayRun);
@@ -168,22 +167,5 @@ public class ReplayActivity extends AppCompatActivity {
             }
         else
             findViewById(R.id.replayBase).setBackground(null);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        if (dataNow.isLegacy() && !corrupted) {
-            try {
-                dataNow.setStatus(ReplayData.STATUS_RECORDING);
-                dataNow.setName(getIntent().getStringExtra("name"));
-                dataNow.computeMaxs();
-                OutputStream stream = getContentResolver().openOutputStream(getIntent().getData());
-                dataNow.serialize(stream);
-                Log.i("Replay System", "Upgraded replay file");
-            } catch (Exception e) {
-                Log.e("Replay System", "Upgrade replay file", e);
-            }
-        }
     }
 }
